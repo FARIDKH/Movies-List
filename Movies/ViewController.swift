@@ -25,10 +25,28 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         "C" : [
             "Community"
         ],
-        "D" : [
+        "F" : [
             "Dadas dadas oglu",
             "Dost dusmana bezer"
-        ]
+        ],
+        "G" : [
+            "Alma almaya benzer",
+            "Alaadin",
+            "Aliens"
+        ],
+        "H" : [
+            "Big Bang Theory",
+            "Basic Insticnt",
+        ],
+        "Z" : [
+            "Community"
+        ],
+        "X" : [
+            "Dadas dadas oglu",
+            "Dost dusmana bezer"
+        ],
+        
+
     ]
     
     override func viewDidLoad() {
@@ -55,6 +73,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         return tableView
     }()
     
+    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+        return Array(movies.keys).sorted(by: <)
+    }
+    
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return movies.count
     }
@@ -78,10 +101,6 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         if let movies = movies[keys[indexPath.section]] {
             cell.textLabel?.text = movies[indexPath.row]
         }
-
-        
-
-        
         return cell
     }
     
